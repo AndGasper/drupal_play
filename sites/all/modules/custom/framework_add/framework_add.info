@@ -1,0 +1,5 @@
+core = "7.x"
+description = "Module for adding a new parent structure"
+name = "Framework Add"
+
+
