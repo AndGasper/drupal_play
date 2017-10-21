@@ -1,0 +1,38 @@
+# Ignore configuration files that may contain sensitive information.
+sites/*/settings*.php
+
+# Ignore the default.settings.php
+sites/default/default.settings.php
+
+# Ignore the example.sites.php
+sites/example.sites.php
+
+# Ignore paths that contain user-generated content.
+sites/*/files
+sites/*/private
+
+# Ignore whatever is in the sites/default folder
+sites/default
+
+# Ignore generic .txt files 
+*.txt
+
+# Ignore .htaccess file
+.htaccess
+
+# Ignore stock drupal administrative files
+install.php
+update.php
+web.config
+xmlrpc.php
+authorize.php
+cron.php
+index.php
+
+# Ignore Drupal core (you shouldn't be editing these unless you're working on drupal core) 
+/includes
+/misc
+/modules
+/profiles
+/scripts
+/themes
