@@ -36,3 +36,7 @@ index.php
 /profiles
 /scripts
 /themes
+
+# Ignore contrib modules 
+sites/all/modules/contrib
+
