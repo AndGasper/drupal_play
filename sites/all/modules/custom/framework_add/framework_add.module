@@ -6,7 +6,7 @@
  * 
  */
 
-module_load_include('inc.php', 'form', 'framework_add_parent_form');
+// module_load_include('inc.php', 'form', 'framework_add_parent_form');
 
 define('DRUPAL_GET_FORM', 'drupal_get_form', false); // I'm too lazy to type the string
 
@@ -14,12 +14,11 @@ function framework_add_parent_menu() {
     // $items = convention
     // The whole point of hook_menu() is to return an array of things
     $items = array();
-    
-    $items['/add/parent'] = array(
+    $items['user/add_parent'] = array(
         'access callback' => TRUE,
-        'page callback' => DRUPAL_GET_FORM,
-        'page arguments' => 'framework_add_parent_form',
-        'file' => 'framework_add_parent.form.inc.php'
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('framework_add_parent_form'),
+        'file' => 'framework_add_parent.form.inc.php',
     );
 
     return $items;

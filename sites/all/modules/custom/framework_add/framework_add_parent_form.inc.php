@@ -23,6 +23,11 @@ function framework_add_parent_form($form, &$form_state) {
         '#title' => t('Form Title')
     );
 
+    $form['submit_button'] = array(
+        '#type' => 'submit',
+        '#value' => t('Submit')
+    );
+
     return $form;
 }
 
@@ -33,5 +38,4 @@ function framework_add_parent_form_validate($form, &$form_state) {
 function framework_add_parent_form_submit($form, &$form_state) {
 
 }
-
-?>
+z

@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file 
+ */
+
+/**
+ * Implementation of hook_install() 
+ */
+function framework_ajax_sample_install() {
+
+}
+
+/**
+ * Implementation of hook_uninstall() 
+ */
+function framework_ajax_sample_uninstall() {
+
+}

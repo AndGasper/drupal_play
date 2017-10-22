@@ -1,0 +1,8 @@
+name = Framework AJAX Example
+description = Test AJAX Form.
+package = Other
+version = CTOOLS_MODULE_VERSION
+dependencies[] = ctools
+core = 7.x
+
+
