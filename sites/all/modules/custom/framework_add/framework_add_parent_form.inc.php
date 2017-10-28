@@ -19,8 +19,23 @@ function framework_add_parent_form($form, &$form_state) {
     $form = array();
 
     $form['title'] = array(
-        '#type' => 'textfield',
+        '#type' => 'item',
         '#title' => t('Form Title')
+    );
+    $form['ajax_element'] = array(
+        '#type' => "select",
+        "options" => drupal_map_assoc(array('1', '2','3')),
+        '#ajax' => array(
+            'callback' => 'framework_add_parent_ajax_callback',
+            'wrapper' => 'other-form-element'
+        )
+    );
+
+    $form['thing_getting_replaced'] = array(
+        '#type' => 'item',
+        '#title' => 'Nothing lasts forever',
+        '#prefix' => '<div id="other-form-element"',
+        '#suffix' => '</div>'
     );
 
     $form['submit_button'] = array(
@@ -38,4 +53,9 @@ function framework_add_parent_form_validate($form, &$form_state) {
 function framework_add_parent_form_submit($form, &$form_state) {
 
 }
-z
+
+function framework_add_parent_ajax_callback(&$form, &$form_state) {
+    $form['thing_getting_replaced']['#title'] = "See, now it's different";
+
+    return $form['thing_getting_replaced'];
+}
