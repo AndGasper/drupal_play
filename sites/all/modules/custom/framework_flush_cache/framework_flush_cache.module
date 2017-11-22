@@ -1,0 +1,20 @@
+<?php
+
+function framework_flush_cache_menu() {
+    $items = array();
+
+    $items['flush_all_caches'] = array(
+        'title' => "Flush All Caches",
+        'page callback' => '',
+        'access callback' => TRUE
+    );
+
+
+    return $items;
+
+}
+
+
+function framework_flush_cache_menu_link($variables) {
+    dpm($variables);
+}

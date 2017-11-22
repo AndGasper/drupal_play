@@ -1,0 +1,8 @@
+<?php
+
+function annotate_menu() {
+    $items['admin/config/annotate'] = array(
+        'title' => 'Node annotation', 
+        'description' => 'Adjust node annotation options.'
+    );
+}

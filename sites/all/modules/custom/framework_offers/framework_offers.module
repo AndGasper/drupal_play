@@ -1,0 +1,18 @@
+<?php
+
+require('framework_add_offer.module.form.inc');
+
+function framework_offers_menu() {
+    $items = array();
+
+    $items['manage/add/offers'] = array(
+        'title' => t('Offers'),
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('framework_add_offer_form'),
+        
+        'access callback' => TRUE, 
+        
+    );
+
+    return $items;
+}

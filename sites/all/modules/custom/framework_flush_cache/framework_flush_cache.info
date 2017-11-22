@@ -1,0 +1,3 @@
+core = "7.x"
+description = "Yes, I know a module already exists for this, but I'm trying to get a better feel for the framework"
+name = "Framework Flush Cache"

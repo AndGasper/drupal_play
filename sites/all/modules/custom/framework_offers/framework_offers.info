@@ -1,0 +1,3 @@
+core = "7.x"
+description = "Moudle that renders form with dynamic content"
+name = "Framework Offers"
