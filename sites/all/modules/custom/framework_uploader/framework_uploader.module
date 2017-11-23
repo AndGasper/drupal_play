@@ -1,0 +1,64 @@
+<?php
+
+function framework_uploader_menu() {
+    $items = array();
+    
+    $items['code-uploader'] = array(
+        'title' => t('Upload a file'),
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('framework_uploader_code_form'),
+        'access callback' => TRUE
+    );
+
+    return $items;
+}
+
+function framework_uploader_code_form($form, &$form_state) {
+    $form = array();
+    
+    $form['code-upload-file'] = array(
+        '#title' => t('Upload codes'),
+        '#type' => 'file'
+    );
+
+    $form['submit-file'] = array(
+        '#type' => 'submit',
+        '#value' => t('Upload')
+    );
+    
+    $form['#validate'] = array(
+        'framework_uploader_code_validate_fileupload',
+        'framework_uploader_code_form_validate',
+      ) ;
+      return $form ;
+    }
+
+function framework_uploader_code_validate_fileupload(&$form, &$form_state) {
+    $validators = array(
+        'file_validate_extensions' => array('csv')
+    ); 
+
+    if ($file = file_save_upload('code-upload-file', $validators, "public://", FILE_EXISTS_REPLACE)) {
+        $form_state['values']['code-upload-file'] = $file->destination;
+    } else {
+        form_set_error('code-upload-file', t('Unavle to copy upload file to !dest', array('!dest' => $destination)));
+    }
+}
+
+function framework_uploader_code_form_validate($form, &$form_state) {
+    
+    if (isset($form_state['values']['code-upload-file'])) {
+        if ($handle = fopen($form_state['values']['code-upload-file'], 'r')) {
+            $line_count = 1;
+            $first = true; 
+            if ($line = fgetcsv($handle, 4096)) {
+                dpm($line, '$line');
+            }
+        }
+    }
+    
+}
+function framework_uploader_code_form_submit($form, &$form_state) {
+    dpm($form_state);
+    
+}

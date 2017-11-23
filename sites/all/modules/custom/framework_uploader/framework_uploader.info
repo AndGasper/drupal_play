@@ -1,0 +1,3 @@
+name = "Framework Code Uploader"
+description = "Upload a CSV file and process the information."
+core = "7.x"
