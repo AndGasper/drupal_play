@@ -51,8 +51,29 @@ function framework_uploader_code_form_validate($form, &$form_state) {
         if ($handle = fopen($form_state['values']['code-upload-file'], 'r')) {
             $line_count = 1;
             $first = true; 
+            // $iteration = 0; // Keep track of the passes 
+            /** For now, let's try not to prematurely optimize 
+             * when you're not even sure which should be faster: 
+             * logic check for iteration just to validate the headers once 
+             *  (logic check, array comparison, 
+             *   increment index for logic check,
+             *   then looping back through having to evaluate the conditional then parsing the file contents)
+             * OR 
+             * 
+             * calling fgetscsv twice
+             *  once to check the headers
+             *  then one more time with a while loop to parse the file's contents
+             *  
+             */
             if ($line = fgetcsv($handle, 4096)) {
-                dpm($line, '$line');
+                // First iteration of while loop should be the file headers
+                $headers = array('First Name', 'Last Name', 'Secret Identity');
+                $line === $header ? '' : form_set_errors('Incorrect headers');
+            }
+
+            while($line = fgetscsv($handle, 4096)) {
+                
+
             }
         }
     }
