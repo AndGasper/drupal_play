@@ -1,0 +1,135 @@
+<?php
+
+function framework_dialog_form_menu() {
+    $items = array();
+
+    $items['order_form'] = array(
+        'title' => t('Order form'),
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('framework_dialog_form'),
+        'access callback' => TRUE,
+        'delivery callback' => 'framework_dialog_form_deliver_page'
+    );
+}
+
+
+// 
+function framework_dialog_form($form, &$form_state) {
+    $form = array();
+    $states = array(
+        'AL'=>'Alabama',
+        'AK'=>'Alaska',
+        'AZ'=>'Arizona',
+        'AR'=>'Arkansas',
+        'CA'=>'California',
+        'CO'=>'Colorado',
+        'CT'=>'Connecticut',
+        'DE'=>'Delaware',
+        'DC'=>'District of Columbia',
+        'FL'=>'Florida',
+        'GA'=>'Georgia',
+        'HI'=>'Hawaii',
+        'ID'=>'Idaho',
+        'IL'=>'Illinois',
+        'IN'=>'Indiana',
+        'IA'=>'Iowa',
+        'KS'=>'Kansas',
+        'KY'=>'Kentucky',
+        'LA'=>'Louisiana',
+        'ME'=>'Maine',
+        'MD'=>'Maryland',
+        'MA'=>'Massachusetts',
+        'MI'=>'Michigan',
+        'MN'=>'Minnesota',
+        'MS'=>'Mississippi',
+        'MO'=>'Missouri',
+        'MT'=>'Montana',
+        'NE'=>'Nebraska',
+        'NV'=>'Nevada',
+        'NH'=>'New Hampshire',
+        'NJ'=>'New Jersey',
+        'NM'=>'New Mexico',
+        'NY'=>'New York',
+        'NC'=>'North Carolina',
+        'ND'=>'North Dakota',
+        'OH'=>'Ohio',
+        'OK'=>'Oklahoma',
+        'OR'=>'Oregon',
+        'PA'=>'Pennsylvania',
+        'RI'=>'Rhode Island',
+        'SC'=>'South Carolina',
+        'SD'=>'South Dakota',
+        'TN'=>'Tennessee',
+        'TX'=>'Texas',
+        'UT'=>'Utah',
+        'VT'=>'Vermont',
+        'VA'=>'Virginia',
+        'WA'=>'Washington',
+        'WV'=>'West Virginia',
+        'WI'=>'Wisconsin',
+        'WY'=>'Wyoming',
+    );
+    
+    $form['first_name'] = array(
+        '#type' => 'textfield',
+        '#title' => t('First name'),
+        '#maxlength' => 25
+    );
+
+    $form['last_name'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Last name'),
+        '#maxlength' => 25
+    );
+
+    $form['street_address1'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Street Address'),
+        '#maxlength' => 65
+    );
+
+    $form['street_address2'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Apt./PO Box #'),
+        '#maxlength' => 25
+    );
+
+    $form['city'] = array(
+        '#type' => 'textfield',
+        '#title' => t('City'),
+        '#maxlength' => 25
+    );
+
+    $form['state'] = array(
+        '#type' => 'select',
+        '#options' => $states,
+        '#title' => t('State')
+    );
+
+    $form['zip'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Zip code'),
+        '#maxlength' => 5
+    );
+
+    $form['email_address'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Email address'),
+        '#maxlength' => 65
+    );
+
+    return $form;
+}
+
+function framework_dialog_form_validate($form, &$form_state) {
+
+}
+
+function framework_dialog_form_submit($form, &$form_state) {
+    
+}
+
+
+function framework_dialog_form_deliver_page(&$page) {
+
+}

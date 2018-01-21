@@ -1,0 +1,3 @@
+name = Dialog Form
+description = Provides a form for use in a dialog/modal
+core = 7.x
